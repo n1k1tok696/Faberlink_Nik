@@ -1,6 +1,24 @@
 <?php get_header();?>
 
 <main>
+    <section class="main-page">
+      <div class="left-article">
+        <a href="/" class="main-logo">
+          <img src="images/logo_icon.png" alt="Logo">
+          <h2>FABERLING</h2>
+        </a>
+        <div class="site-title">
+          <h1>Finden Sie Ihren Architekten</h1>
+          <p>Von unserer Architektur-Community erhalten Sie im Wettbewerbsverfahren
+            Architektur-Konzeptentwürfe die Sie begeistern werden — Sie küren den Gewinner, bezahlen einen Preis und das
+            mit Preisgeld-zurück-Garantie.</p>
+        </div>
+        <button><span>JETZT STARTEN</span></button>
+      </div>
+      <div class="right-article">
+        <img src="images/fone.jpg" alt="fone">
+      </div>
+    </section>
     <section class="design_concept">
       <h2>Was beinhaltet ein Architektur-Konzeptentwurf?</h2>
       <div class="blocks-in-row">
