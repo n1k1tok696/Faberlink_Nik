@@ -1,19 +1,12 @@
 "use strict";
 
-console.log('11213123'); // $(document).ready(function () {
-//   $('.carousel').slick({
-//     infinite: true,
-//     slidesToShow: 3,
-//     slidesToScroll: 3
-//   });
-// });
+let correctURL = window.location.pathname === '/';
+// console.log(correctURL);
 
 function Carousel(setting) {
   var _this = this;
 
-  /* Scope privates methods and properties */
   var privates = {};
-  /* Privates properties */
 
   privates.setting = setting;
   privates.sel = {
@@ -28,7 +21,7 @@ function Carousel(setting) {
     "position": 0,
     "max_position": document.querySelector(privates.setting.wrap).children.length,
     trans: 0
-  }; // Control
+  };
 
   if (privates.sel.prev !== null) {
     privates.sel.prev.addEventListener('click', function () {
@@ -41,8 +34,6 @@ function Carousel(setting) {
       _this.next_slide();
     });
   }
-  /* Public methods */
-  // Prev slide
 
 
   this.prev_slide = function () {
@@ -50,7 +41,6 @@ function Carousel(setting) {
     privates.opt.trans -= 25;
 
     if (privates.opt.position < 0) {
-      // privates.sel.wrap.classList.add('s-notransition');
       privates.opt.position = privates.opt.max_position - 1;
     } else if (privates.opt.position === 0) {
       privates.opt.position = 0;
@@ -76,7 +66,7 @@ function Carousel(setting) {
   };
 }
 
-new Carousel({
+correctURL && new Carousel({
   "main": ".carousel",
   "wrap": ".companies",
   "prev": ".arrow-left",
@@ -84,11 +74,20 @@ new Carousel({
 });
 
 window.onscroll = function show_header() {
-  var header = document.querySelector('.header');
+  const header = document.querySelector('.header');
 
   if (window.pageYOffset > 50) {
+    header.classList.add('header-static');
     header.classList.add('hide');
   } else {
+    correctURL && header.classList.remove('header-static');
     header.classList.remove('hide');
   }
 };
+
+const changeHeader = () => {
+  const header = document.querySelector('.header');
+  header.classList.add('header-static');
+}
+
+!correctURL && changeHeader();
