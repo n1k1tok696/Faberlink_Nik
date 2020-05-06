@@ -84,23 +84,26 @@ Template Name: Home
       </div>
     </section>
     <section>
+      <div class="wrapper posts">
       <p>This post from home page</p>
-      <?php if (have_posts()) { while (have_posts()) { the_post();?>
-        <div>
-          <a href="<?php the_permalink();?>">
-            <h1><?php the_title();?></h1>
-          </a>
-          <p>Preview: <?php the_post_thumbnail('thumbnail');?></p>
-          <p>Creation time: <?php the_time('F, jS, Y');?></p>
-          <p>Add category: <?php the_category( $separator = '/');?></p>
-          <p>Some tags: <?php the_tags( '', '/');?></p>
+        <?php if (have_posts()) { while (have_posts()) { the_post();?>
+          <div class="post">
+            <a href="<?php the_permalink();?>">
+              <h2><?php the_title();?></h2>
+            </a>
+            <p>Preview: <?php the_post_thumbnail('thumbnail');?></p>
+            <p>Creation time: <?php the_time('F, jS, Y');?></p>
+            <p>Add category: <?php the_category( $separator = '/');?></p>
+            <p>Some tags: <?php the_tags( '', '/');?></p>
 
-          <?php the_excerpt();?>
-        </div>
-          <?php } 
-        } ?>
+            <?php the_excerpt();?>
+          </div>
+            <?php } 
+          } ?>
+      </div>
     </section>
     <section>
+      <div class="wrapper posts">
       <p>This posts from another page</p>
       <?php 
         // параметры по умолчанию
@@ -112,14 +115,16 @@ Template Name: Home
 
         foreach( $posts as $post ){ setup_postdata($post);
             ?>
-              <div>
+              <div class="post">
                 <?php the_title();?>
+                <?php the_excerpt();?>
               </div>
             <?php
         }
 
         wp_reset_postdata(); // сброс
       ?>
+      </div>
     </section>
     <section class="principles design_concept">
       <h2>Faberling steht für</h2>

@@ -1,7 +1,7 @@
 <?php if (have_posts()) { while (have_posts()) { the_post();?>
-<div>
+<div class="post">
   <a href="<?php the_permalink();?>">
-    <h1><?php the_title();?></h1>
+    <h2><?php the_title();?></h2>
   </a>
   <p>Preview: <?php the_post_thumbnail('thumbnail');?></p>
   <p>Creation time: <?php the_time('F, jS, Y');?></p>

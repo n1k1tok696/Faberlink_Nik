@@ -13,10 +13,32 @@ li.menu-item-has-children:hover ul {
 
 .wrapper {
   max-width: 1024px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.wrapper.posts {
+  align-items: center;
 }
 
 /* widget styles */
 .custom {
  display: flex;
- justify-content: space-around;
+ justify-content: space-between;
 }
+
+/* posts */
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  margin-bottom: 50px;
+}
+.post a {
+  text-align: center;
+}
+
