@@ -11,6 +11,11 @@ li.menu-item-has-children:hover ul {
   /* position: absolute; */
 }
 
+.wrapper {
+  max-width: 1024px;
+}
+
+/* widget styles */
 .custom {
  display: flex;
  justify-content: space-around;

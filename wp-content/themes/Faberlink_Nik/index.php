@@ -83,6 +83,44 @@ Template Name: Home
         </div>
       </div>
     </section>
+    <section>
+      <p>This post from home page</p>
+      <?php if (have_posts()) { while (have_posts()) { the_post();?>
+        <div>
+          <a href="<?php the_permalink();?>">
+            <h1><?php the_title();?></h1>
+          </a>
+          <p>Preview: <?php the_post_thumbnail('thumbnail');?></p>
+          <p>Creation time: <?php the_time('F, jS, Y');?></p>
+          <p>Add category: <?php the_category( $separator = '/');?></p>
+          <p>Some tags: <?php the_tags( '', '/');?></p>
+
+          <?php the_excerpt();?>
+        </div>
+          <?php } 
+        } ?>
+    </section>
+    <section>
+      <p>This posts from another page</p>
+      <?php 
+        // параметры по умолчанию
+        $posts = get_posts( array(
+          'numberposts' => 2,
+          'post_type'   => 'post',
+          'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        ) );
+
+        foreach( $posts as $post ){ setup_postdata($post);
+            ?>
+              <div>
+                <?php the_title();?>
+              </div>
+            <?php
+        }
+
+        wp_reset_postdata(); // сброс
+      ?>
+    </section>
     <section class="principles design_concept">
       <h2>Faberling steht für</h2>
       <div class="blocks-in-row">
